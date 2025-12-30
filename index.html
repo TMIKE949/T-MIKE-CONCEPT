@@ -405,6 +405,34 @@
 	.center {
 		text-align: center;
 	}
+	.about-line{
+		display:flex;
+		align-items:center;
+		gap:20px;
+	}
+	.whatsapp {
+	  box-shadow: 0 0 15px rgba(0,212,255,0.5);
+	  padding: 10px 15px;
+	  border-radius: 45%;
+	  font-size: 25px;
+	  color: cyan;
+	  animation: pulse 3s infinite;
+	}
+
+	@keyframes pulse {
+	  0% {
+		color: cyan;
+		box-shadow: 0 0 15px rgba(0,212,255,0.5);
+	  }
+	  50% {
+		color: white;
+		box-shadow: 0 0 15px rgba(255,255,255,0.8);
+	  }
+	  100% {
+		color: cyan;
+		box-shadow: 0 0 15px rgba(0,212,255,0.5);
+	  }
+	}
 
 	/* Projects */
 	.projects-section {
@@ -1014,7 +1042,10 @@
           Let's make your brand stand out.
         </p>
         <p style="color:var(--muted); margin-bottom:12px">Available for freelance & collaboration.</p>
-        <a href="#contact" class="btn btn-primary">Work With Me</a>
+		<div class="about-line">
+			<a href="#contact" class="btn btn-primary">Work With Me</a>
+			<a href="https://wa.me/+2347038073947" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+		</div>
       </div>
     </div>
   </section>
@@ -1151,8 +1182,6 @@
           <input type="email" name="email_id" placeholder="Your email" required>
           <textarea name="message" rows="5" placeholder="Your message" required></textarea>
           <button class="contact-btn" type="submit">Send Message</button>
-		    <h3 style="color:#fff; margin-bottom:8px; margin-top:8px;">Whatsapp Number: +234 703 807 3947 </h3>
-
           <div id="form-message"></div>
         </form>
       </div>
