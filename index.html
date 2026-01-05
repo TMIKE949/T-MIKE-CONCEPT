@@ -1178,13 +1178,19 @@
       <div class="contact-form">
         <h2 class="center" style="color:var(--accent-blue); margin-bottom:18px">Contact Us</h2>
         <h3 style="color:#fff; margin-bottom:8px">Let's talk about your brand's identity</h3>
-        <form id="emailForm">
-          <input type="text" name="from_name" placeholder="Your name" required>
-          <input type="email" name="email_id" placeholder="Your email" required>
-          <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-          <button class="contact-btn" type="submit">Send Message</button>
-          <div id="form-message"></div>
-        </form>
+		 <form id="emailForm">
+				<div class="input-group">
+					<input type="text" name="from_name" placeholder="Your Name" required>
+				</div>
+				<div class="input-group">
+					<input type="email" name="email_id" placeholder="Your Email" required>
+				</div>
+				<div class="input-group">
+					<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+				</div>
+				<button type="submit" class="contact-btn">Send Message</button>
+				<div id="form-message"></div>
+            </form>
       </div>
       <div class="contact-image">
         <img src="img/contact-tmike.jpeg" alt="Contact">
@@ -1197,7 +1203,7 @@
   </footer>
 
   <!-- EmailJS lib -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     // Mobile sidebar
     (function () {
@@ -1380,31 +1386,29 @@
     })();
 
     // EmailJS contact form
-    (function () {
-      if (window.emailjs) emailjs.init("Q9nJn10E6CckV2Npk");
-      const form = document.getElementById('emailForm');
-      if (!form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const msg = document.getElementById('form-message');
-        if (msg) { msg.style.color = '#fff'; msg.style.display = 'block'; msg.textContent = 'submitting.....'; }
-        emailjs.sendForm('service_iv19bxu', 'template_bdngi8m', this)
-          .then(function () {
-            if (msg) {
-              msg.style.color = '#0f0';
-              msg.textContent = 'Message sent successfully!';
-              setTimeout(() => { msg.textContent = ''; msg.style.display = 'none'; }, 3000);
-            }
-            form.reset();
-          }, function () {
-            if (msg) {
-              msg.style.color = '#f00';
-              msg.textContent = 'Failed to send message. Please try again.';
-              setTimeout(() => { msg.textContent = ''; msg.style.display = 'none'; }, 3000);
-            }
-          });
-      });
-    })();
+   (function(){
+            if (window.emailjs) emailjs.init("Q9nJn10E6CckV2Npk");
+            const form = document.getElementById('emailForm');
+            if (!form) return;
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                const msg = document.getElementById('form-message');
+                msg.style.color = '#fff';
+                msg.style.display = 'block';
+                msg.textContent = 'submitting.....';
+                emailjs.sendForm('service_iv19bxu', 'template_bdngi8m', this)
+                    .then(function(){
+                        msg.style.color = '#0f0';
+                        msg.textContent = 'Message sent successfully!';
+                        setTimeout(()=>{ msg.textContent=''; msg.style.display='none'; }, 3000);
+                        form.reset();
+                    }, function(){
+                        msg.style.color = '#f00';
+                        msg.textContent = 'Failed to send message. Please try again.';
+                        setTimeout(()=>{ msg.textContent=''; msg.style.display='none'; }, 3000);
+                    });
+            });
+        })();
 	(function () {
 	  const modal = document.getElementById('imageModal');
 	  const modalImg = document.getElementById('modalImage');
